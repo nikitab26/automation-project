@@ -1,4 +1,5 @@
 package org.example.testRunner;
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
@@ -7,7 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/resources/features"}
         , glue = {"org.example.stepDefinitions"}
-       // , tags = "@Manager"
+        , tags = "@DeleteAcc"
+      //  , dryRun = true
      //   , plugin = {"pretty" , "html:target/html_report.html"}
 )
 public class TestRunner {
