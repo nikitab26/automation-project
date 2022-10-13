@@ -3,6 +3,7 @@ package org.example.stepDefinitions;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.pageActions.LoginActions;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 public class LoginSteps {
@@ -20,6 +21,7 @@ public class LoginSteps {
         loginActions.enterUserId(userId);
         loginActions.enterPassword(password);
         loginActions.clickOnLogin();
+
     }
 
     @Then("Login should be successful")

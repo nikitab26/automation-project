@@ -24,11 +24,11 @@ public class CommonSteps {
     }
 
 
-//    @After
-//    public void tearDown() throws InterruptedException {
-//        driver.quit();
-//        Thread.sleep(3000);
-//    }
+    @After
+    public void tearDown() throws InterruptedException {
+        driver.quit();
+        Thread.sleep(3000);
+    }
 
     @Given("Open application in browser")
     public void open_application_in_browser() {
