@@ -4,10 +4,8 @@ import org.apache.commons.io.FileUtils;
 import org.example.pageElements.LoginElements;
 import org.example.stepDefinitions.CommonSteps;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,15 +27,21 @@ public class LoginActions {
 
     public void enterPassword(String password) throws IOException {
         loginElements.password.sendKeys(password);
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.TAB).perform();
 
 
-        String exp = "User-ID must not be blank";
-        String actual = driver.findElement(By.id("message23")).getText();
+//        String userExp = "User-ID must not be blank";
+//        String userActual = driver.findElement(By.id("message23")).getText();
+//        Assert.assertEquals(userExp,userActual);
 
-        Assert.assertEquals(exp,actual);
+        String passExp = "Password must not be blank";
+        String passActual = driver.findElement(By.id("message18")).getText();
+        Assert.assertEquals(passExp,passActual);
 
-        File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(screenshot, new File("src/test/resources/invalidUsername-screenshot.png"));
+
+
+
     }
 
     public void clickOnLogin() {
